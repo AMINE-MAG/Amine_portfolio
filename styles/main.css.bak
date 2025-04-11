@@ -143,199 +143,42 @@
      font-size: 1.5rem;
      cursor: pointer;
 }
-/* ======================
-   HERO SECTION STYLES
-   ====================== */
-
-.hero {
-    display: grid;
-    /* 60-40 split favoring content, image on right */
-    grid-template-columns: 60% 40%;
-    align-items: center;
-    min-height: 100vh;
-    padding: 80px 0;
-    position: relative;
+/* Hero Section */
+ .hero {
+     height: 100vh;
+     display: flex;
+     align-items: center;
+     padding-top: 80px;
 }
-
-/* ----------------------
-   Text Content Styles
-   ---------------------- */
-.hero-content {
-    padding-right: 30px;
-    /* Container for fade-up animation */
-    animation: fadeInUp 0.8s ease-out;
+ .hero-content {
+     flex: 1;
+     animation: fadeInLeft 1s ease;
 }
-
-/* Main title with multi-part animation */
-.hero-title {
-    font-size: clamp(2.5rem, 5vw, 3.5rem); /* Responsive font size */
-    line-height: 1.2;
-    margin-bottom: 20px;
-    position: relative;
+ .hero-image {
+     flex: 1;
+     text-align: center;
+     animation: fadeInRight 1s ease;
 }
-
-/* Animate each word in the title */
-.hero-title .word {
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s forwards;
+ .hero-title {
+     font-size: 3.5rem;
+     margin-bottom: 20px;
 }
-
-/* Delay each word's animation */
-.hero-title .word:nth-child(1) { animation-delay: 0.2s; }
-.hero-title .word:nth-child(2) { animation-delay: 0.4s; }
-.hero-title .word:nth-child(3) { animation-delay: 0.6s; }
-
-/* Highlight span animation */
-.highlight {
-    position: relative;
-    display: inline-block;
+ .hero-subtitle {
+     font-size: 2rem;
+     margin-bottom: 15px;
+     color: var(--text-light);
 }
-
-.highlight::after {
-    content: '';
-    position: absolute;
-    bottom: 5px;
-    left: 0;
-    width: 100%;
-    height: 8px;
-    background-color: var(--primary-color);
-    z-index: -1;
-    transform: scaleX(0);
-    transform-origin: left;
-    animation: highlightExpand 0.8s ease-out 1s forwards;
+ .hero-description {
+     font-size: 1.2rem;
+     margin-bottom: 30px;
+     max-width: 600px;
 }
-
-/* Subtitle with delayed fade-in */
-.hero-subtitle {
-    font-size: 1.5rem;
-    color: var(--text-light);
-    margin-bottom: 15px;
-    opacity: 0;
-    animation: fadeInUp 0.8s ease-out 0.8s forwards;
-}
-
-/* Description with delayed fade-in */
-.hero-description {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-    opacity: 0;
-    animation: fadeInUp 0.8s ease-out 1s forwards;
-}
-
-/* CTA button with delayed fade-in */
-.btn {
-    opacity: 0;
-    animation: fadeInUp 0.8s ease-out 1.2s forwards;
-}
-
-/* ----------------------
-   Profile Image Styles
-   ---------------------- */
-.hero-image {
-    position: relative;
-    display: flex;
-    justify-content: flex-end; /* Align image to right */
-    align-items: center;
-    height: 100%;
-}
-
-.profile-img {
-    width: 100%;
-    max-width: 350px;
-    height: auto;
-    aspect-ratio: 1/1; /* Perfect square */
-    object-fit: cover;
-    object-position: top center; /* Ensure full head is visible */
-    border-radius: 20px;
-    border: 8px solid white;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
-    transform: perspective(1000px) rotateY(-10deg);
-    opacity: 0;
-    animation: fadeInRight 0.8s ease-out 0.4s forwards;
-    /* Fix image clipping */
-    overflow: hidden;
-}
-
-/* Image hover effect */
-.profile-img:hover {
-    transform: perspective(1000px) rotateY(0deg) scale(1.03);
-    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.3);
-}
-
-/* ======================
-   ANIMATION KEYFRAMES
-   ====================== */
-
-/* Text fade and move up */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Image fade and move from right */
-@keyframes fadeInRight {
-    from {
-        opacity: 0;
-        transform: perspective(1000px) rotateY(-15deg) translateX(50px);
-    }
-    to {
-        opacity: 1;
-        transform: perspective(1000px) rotateY(-10deg) translateX(0);
-    }
-}
-
-/* Highlight underline animation */
-@keyframes highlightExpand {
-    from {
-        transform: scaleX(0);
-    }
-    to {
-        transform: scaleX(1);
-    }
-}
-
-/* ======================
-   RESPONSIVE ADJUSTMENTS
-   ====================== */
-
-@media (max-width: 992px) {
-    .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 30px;
-    }
-    
-    .hero-content {
-        padding-right: 0;
-        margin-bottom: 30px;
-    }
-    
-    .hero-image {
-        justify-content: center;
-    }
-    
-    .profile-img {
-        max-width: 280px;
-    }
-}
-
-@media (max-width: 576px) {
-    .hero-title {
-        font-size: 2.2rem;
-    }
-    
-    .profile-img {
-        max-width: 220px;
-        border-width: 5px;
-    }
+ .profile-img {
+     max-width: 100%;
+     height: auto;
+     border-radius: 50%;
+     box-shadow: var(--shadow);
+     max-height: 500px;
 }
 /* About Section */
  .about-content {
